@@ -3,7 +3,7 @@ from flask_cors import CORS
 import speech_recognition as sr
 from pydub import AudioSegment
 import io
-from google.cloud import speech
+# from google.cloud import speech
 
 app = Flask(__name__)
 CORS(app)
@@ -35,7 +35,7 @@ def transcribe():
             with audioFile as source:  # reading the file
                 data = recognizer.record(source)  # through the recognizer
             # using Google API will return the text
-            transcript = recognizer.recognize_google(data, key=None)
+            transcript = recognizer.recognize_google(data, key=None, language="id-ID", show_all=False)
 
         return jsonify({'text': transcript})
 
