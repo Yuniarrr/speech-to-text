@@ -12,8 +12,7 @@ CORS(app)
 r = sr.Recognizer()
 
 # Set path to FFmpeg
-# AudioSegment.ffmpeg = "C:/Program Files/ffmpeg/bin/ffmpeg.exe"
-AudioSegment.ffmpeg = "C:/Windows.old/Users/LENOVO/AppData/Local/Packages/NAVER.LINEwin8_8ptj331gd3tyt/AppData/LINE/Data/plugin/ffmpeg/1.0.0.5>/ffmpeg.exe"
+AudioSegment.ffmpeg = "C:/ffmpeg/bin/ffmpeg.exe"
 
 
 @app.route('/transcribe', methods=['POST'])

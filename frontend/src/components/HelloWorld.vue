@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center items-center flex-col">
-    <h1 class="mb-8 font-bold text-xl">Speech-to-Text</h1>
+  <div class="flex flex-col items-center justify-center">
+    <h1 class="mb-8 text-xl font-bold">Speech-to-Text</h1>
     <div class="flex">
       <input type="file" @change="onFileChange" />
       <button
@@ -10,8 +10,8 @@
       >
         Transcribe
       </button>
-      <p v-if="transcription">{{ transcription }}</p>
     </div>
+    <p v-if="transcription">{{ transcription }}</p>
   </div>
 </template>
 
