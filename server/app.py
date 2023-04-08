@@ -3,6 +3,7 @@ from flask_cors import CORS
 import speech_recognition as sr
 from pydub import AudioSegment
 import io
+import json
 # from google.cloud import speech
 
 app = Flask(__name__)
@@ -18,6 +19,8 @@ AudioSegment.ffmpeg = "C:/ffmpeg/bin/ffmpeg.exe"
 @app.route('/transcribe', methods=['POST'])
 def transcribe():
     try:
+        data = request.get_json()
+        print(data)
         transcript = ""
         if "file" not in request.files:  # no file exist/ uploaded
             print(" Debug: Line 1")
