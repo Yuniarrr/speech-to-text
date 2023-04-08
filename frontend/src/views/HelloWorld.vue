@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center">
+  <div class="flex flex-col items-center justify-center h-screen">
     <div class="flex items-center" v-if="loading">
       <svg
         aria-hidden="true"
