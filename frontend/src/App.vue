@@ -1,5 +1,5 @@
 <template>
-  <HelloWorld />
+  <HelloWorld class="w-full h-screen" />
 </template>
 
 <script>

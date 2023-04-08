@@ -1,9 +1,17 @@
 <template>
-  <div class="hello">
-    <h1>Speech-to-Text</h1>
-    <input type="file" @change="onFileChange" />
-    <button @click="transcribe">Transcribe</button>
-    <p v-if="transcription">{{ transcription }}</p>
+  <div class="flex justify-center items-center flex-col">
+    <h1 class="mb-8 font-bold text-xl">Speech-to-Text</h1>
+    <div class="flex">
+      <input type="file" @change="onFileChange" />
+      <button
+        @click="transcribe"
+        type="button"
+        class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+      >
+        Transcribe
+      </button>
+      <p v-if="transcription">{{ transcription }}</p>
+    </div>
   </div>
 </template>
 
