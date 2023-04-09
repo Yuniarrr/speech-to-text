@@ -2,8 +2,7 @@
   <router-view />
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style scoped>
 .logo {

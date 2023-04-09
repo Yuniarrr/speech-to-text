@@ -31,13 +31,13 @@
           Transcribe
         </button>
       </div>
+      <div>{{ voiceSelect }}</div>
 
       <div class="flex justify-center">
         <div class="mb-3 xl:w-96">
           <select
             data-te-select-init
             v-model="voiceSelect"
-            @change="onVoiceSelect"
             class="border-solid rounded-lg"
           >
             <option
@@ -102,14 +102,11 @@ export default {
     onFileChange(event) {
       this.file = event.target.files[0];
     },
-    onVoiceSelect() {
-      this.voiceSelect = this.voiceSelect;
-      console.log(this.voiceSelect);
-    },
     async transcribe() {
       this.loading = true;
       const formData = new FormData();
       formData.append("file", this.file);
+      formData.append("voiceSelect", JSON.stringify(this.voiceSelect.lang));
 
       const response = await fetch("http://localhost:5000/transcribe", {
         method: "POST",

@@ -9,9 +9,6 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-# Initialize the recognizer
-r = sr.Recognizer()
-
 # Set path to FFmpeg
 AudioSegment.ffmpeg = "C:/ffmpeg/bin/ffmpeg.exe"
 
@@ -19,14 +16,14 @@ AudioSegment.ffmpeg = "C:/ffmpeg/bin/ffmpeg.exe"
 @app.route('/transcribe', methods=['POST'])
 def transcribe():
     try:
-        data = request.get_json()
-        print(data)
         transcript = ""
         if "file" not in request.files:  # no file exist/ uploaded
             print(" Debug: Line 1")
             # return redirect(request.url)  # redirect the user to the home page
 
         file = request.files['file']  # if file exist it will give me that file
+        lang = request.form['voiceSelect']
+        print(lang)
         if file.filename == "":  # if file is blank/empty, return to the main page
             print(" Debug: Line 2")
             # return redirect(request.url)
@@ -38,7 +35,8 @@ def transcribe():
             with audioFile as source:  # reading the file
                 data = recognizer.record(source)  # through the recognizer
             # using Google API will return the text
-            transcript = recognizer.recognize_google(data, key=None, language="id-ID", show_all=False)
+            transcript = recognizer.recognize_google(
+                data, key=None, language=lang, show_all=False)
 
         return jsonify({'text': transcript})
 
