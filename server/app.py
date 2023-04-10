@@ -4,6 +4,7 @@ import speech_recognition as sr
 from pydub import AudioSegment
 import io
 import json
+import fleep
 # from google.cloud import speech
 
 app = Flask(__name__)
@@ -23,18 +24,25 @@ def transcribe():
 
         file = request.files['file']  # if file exist it will give me that file
         lang = request.form['voiceSelect']
-        print(lang)
+        lang = lang.replace("\"", "")
+        print(f"lang: {lang}")
         if file.filename == "":  # if file is blank/empty, return to the main page
             print(" Debug: Line 2")
             # return redirect(request.url)
 
+        # convert the file to wav
+        if file.filename.endswith('.mp3'):
+            file = io.BytesIO(file.read())
+            file = AudioSegment.from_file(file, format="mp3")
+            file = file.export(format="wav")
+        
         if file:
             print(" Debug: Line 3")
             recognizer = sr.Recognizer()  # initilaize instance of the speech recognition class
             audioFile = sr.AudioFile(file)  # pass in the file
             with audioFile as source:  # reading the file
                 data = recognizer.record(source)  # through the recognizer
-            # using Google API will return the text
+            # using Google API will return the 
             transcript = recognizer.recognize_google(
                 data, key=None, language=lang, show_all=False)
 
