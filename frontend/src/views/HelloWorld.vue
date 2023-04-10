@@ -1,52 +1,65 @@
 <template>
-  <div class="mb-16">
-    <div class="text-white pt-6">
+  <div class="text-white">
+    <div
+      class="container mx-auto flex flex-wrap flex-col w-full md:flex-row items-center "
+    >
+      <!--Left Col-->
       <div
-        class="container mx-auto flex flex-wrap flex-col w-full md:flex-row items-center"
+        class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left mx-auto"
       >
-        <!--Left Col-->
-        <div
-          class="flex flex-col w-full md:w-2/5 justify-center items-start text-center"
-        >
-          <p class="uppercase tracking-loose w-full">
-            <TextRainbow
-              class="text-black cursor-pointer"
-              text="Hello, This is Speech to text"
-            />
-            <br />
-          </p>
-          <h1 class="my-3 text-5xl font-bold leading-tight">
-            <TextRainbow
-              class="text-black cursor-pointer"
-              text="Hello! Nice to meet you! Is there anything I can help?"
-            />
-          </h1>
-          <p class="leading-normal text-2xl mb-8"></p>
-        </div>
-        <div class="w-full flex items-center justify-center md:w-3/5">
-          <lottie-player
-            src="https://assets9.lottiefiles.com/private_files/lf30_h04isle8.json"
-            background="transparent"
-            speed="1"
-            style="width: 450px; height: 400px"
-            loop
-            autoplay
-          ></lottie-player>
-        </div>
+        <p class="uppercase tracking-loose w-full">
+          <TextRainbow
+            class="text-gray-500 cursor-pointer"
+            text="Hello, This is Speech to text"
+          />
+          <br />
+        </p>
+        <h1 class="my-3 text-5xl font-bold leading-tight">
+          <TextRainbow
+            class="text-gray-400 cursor-pointer"
+            text="Hello! Nice to meet you! Is there anything I can help?"
+          />
+        </h1>
+        <p class="leading-normal text-2xl"></p>
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <lottie-player
+          src="https://assets3.lottiefiles.com/private_files/lf30_bkvgqudf.json"
+          background="transparent"
+          speed="1"
+          style="width: 450px; height: 400px"
+          loop
+          autoplay
+        ></lottie-player>
       </div>
     </div>
+  </div>
 
-    <div class="container flex flex-col w-full md:flex-row mx-auto my-7">
-      <div
-        class="flex flex-col items-center justify-center mt-10 w-full md:w-2/5"
-      >
-        <div class="mb-1">
+ 
+  <!-- speech -->
+  <section class="bg-white mx-auto">
+    <div class="container mx-auto flex flex-wrap pb-3 px-10">
+      
+      <div class="w-full md:w-1/3 p-2 flex flex-col flex-grow flex-shrink">
+        <div
+          class="flex-1 bg-sky-100 rounded-t rounded-b-none overflow-hidden shadow"
+        >
+         <!-- voice -->
+         <div
+      class="flex flex-col pt-5 mx-auto items-center justify-center w-full"
+    >
+      <div class="mb-3">
+        <div class="mb-2 text-center dark:text-gray-300 text-lg font-semibold">
+          SPEECH
+        </div>
+        <div class="flex flex-row items-center justify-center flex-wrap ">
+        <h1 class="mb-2">Choose Language</h1>
           <select
             v-model="voiceSelect"
-            class="border-solid rounded-full w-full text-left px-24"
+            class="border-solid rounded-full w-full text-left px-5"
           >
             <option
-              class="w-full text-left"
+              class=""
               v-for="voice in voiceList"
               :data-name="voice.name"
               :data-lang="voice.lang"
@@ -57,31 +70,25 @@
             </option>
           </select>
         </div>
-        <div class="flex flex-col items-center mb-1">
-          <div class="uppercase dark:text-gray-300 text-lg font-semibold">
-            Choose Audio File
-          </div>
-          <div
-            class="flex flex-row items-center justify-center flex-wrap gap-x-8"
-          >
-            <input
-              type="file"
-              @change="onFileChange"
-              class="text-left text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-            />
-            <button
-              @click="transcribe"
-              type="button"
-              class="bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-white hover:bg-blue-600"
-            >
-              Transcribe
-            </button>
-          </div>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <h1 class="mb-2">Choose Audio File</h1>
+        <div
+          class="flex flex-row items-center justify-center flex-wrap"
+        >
+          <input
+            type="file"
+            @change="onFileChange"
+            class="text-left text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+          />
         </div>
-        <div class="flex-col items-center justify-center">
+      </div>
+      <div class="flex items-center justify-center mx-auto mt-2 space-x-2">
+        <div>
           <button
             type="button"
-            class="inline-flex items-center py-2.5 px-3 text-sm font-medium text-white bg-gray-800 rounded-lg border hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            class="inline-flex items-center py-2 px-3 text-sm font-medium text-white bg-gray-800 rounded-lg border hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
           >
             <svg
               aria-hidden="true"
@@ -97,58 +104,72 @@
               ></path></svg
             >Voice
           </button>
-          <lottie-player
-            src="https://assets5.lottiefiles.com/packages/lf20_fgwiaub8.json"
-            background="transparent"
-            speed="1"
-            style="width: 300px; height: 50px"
-            loop
-            autoplay
-          ></lottie-player>
         </div>
+        <button
+          @click="transcribe"
+          type="button"
+          class="inline-flex items-center py-2 px-3 text-sm font-medium text-white bg-gray-800 rounded-lg border hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        >
+          Transcribe
+        </button>
+
       </div>
-      <div
-        class="md:w-3/5 w-full flex justify-center border-4 border-b-8 border-black rounded-3xl flex-wrap"
-      >
-        <lottie-player
-          class="absolute md:right-5"
-          src="https://assets5.lottiefiles.com/packages/lf20_yoAOMj.json"
-          background="transparent"
-          speed="1"
-          style="width: 200px; height: 200px"
-          loop
-          autoplay
-        ></lottie-player>
-        <h2 class="font-semibold mt-5 text-xl">Speech to Text</h2>
-        <div class="flex items-center justify-center" v-if="loading">
-          <svg
-            aria-hidden="true"
-            role="status"
-            class="w-6 h-6 animate-spin text-blue-700 mr-3"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="50"
-              cy="50"
-              fill="none"
-              r="40"
-              stroke="currentColor"
-              stroke-width="10"
-            />
-          </svg>
-        </div>
-        <div class="border-b w-full flex items-center flex-col">
-          <img src="../assets/paper.png" class="-z-10 relative" alt="" />
-          <div class="flex flex-wrap items-center justify-center">
-            <p class="text-center mb-2" v-if="transcription && !loading">
-              {{ transcription }}
-            </p>
-          </div>
-        </div>
-      </div>
+      <lottie-player
+        src="https://assets5.lottiefiles.com/packages/lf20_fgwiaub8.json"
+        background="transparent"
+        speed="1"
+        style="width: 300px; height: 50px"
+        loop
+        autoplay
+      ></lottie-player>
     </div>
-  </div>
+        </div>
+      </div>
+      <div class="w-full md:w-1/3 p-2 flex flex-col flex-grow flex-shrink">
+        <div
+          class="flex-1 bg-sky-100 rounded-t rounded-b-none overflow-hidden shadow"
+        >
+        <div
+      class="flex flex-col pt-5 mx-auto items-center justify-center w-full"
+    >
+      <div class="mb-3">
+        <div class="uppercase mb-2 dark:text-gray-300 text-lg font-semibold">
+          SPEECH TO TEXT
+        </div>
+        <div class="flex items-center justify-center" v-if="loading">
+        <svg
+          aria-hidden="true"
+          role="status"
+          class="w-6 h-6 animate-spin text-blue-700 mr-3"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            fill="none"
+            r="40"
+            stroke="currentColor"
+            stroke-width="10"
+          />
+        </svg>
+      </div>
+      <div class="border-b w-full flex items-center flex-col">
+       
+        <div class="flex flex-wrap items-center justify-center">
+          <p class="text-center mb-2" v-if="transcription && !loading">
+            {{ transcription }}
+          </p>
+        </div>
+      </div>
+       
+        </div>
+        </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
 </template>
 
 <script>

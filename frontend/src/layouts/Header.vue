@@ -1,42 +1,53 @@
 <template>
-  <div class="sticky top-0 bg-black" id="app">
+  <div class="sticky top-0 bg-sky-300" id="app">
     <nav class="flex items-center justify-between flex-wrap bg-teal p-4">
       <div class="flex items-center flex-no-shrink text-white mr-6">
-        <img
+        <!-- <img
           class="fill-current h-8 w-8 mr-2 w-32 h-32"
           src="../assets/logo.png"
           alt="logo"
-        />
-        <span class="font-semibold text-xl tracking-tight">SORA</span>
+        /> -->
+        <span class="font-bold text-xl text-black tracking-tight">SORA</span>
       </div>
 
+      <div class="flex justify-center md:w-3/5">
+          <lottie-player
+            src="https://assets1.lottiefiles.com/packages/lf20_KUFdS6.json"
+            background="transparent"
+            speed="2"
+            style="width: 50px; height: 50px"
+            loop
+            autoplay
+          ></lottie-player>
+          <lottie-player
+              src="https://assets1.lottiefiles.com/packages/lf20_KUFdS6.json"
+              background="transparent"
+              speed="2"
+              style="width: 200px; height: 50px"
+              loop
+              autoplay
+            ></lottie-player>
+        </div>
       <ul
-        :class="open ? 'block' : 'hidden'"
         class="w-full sm:flex sm:items-center sm:w-auto"
       >
-        <div class="text-sm sm:flex-grow flex">
+        <div class="text-sm flex">
           <li>
-            <a
+            <button
               @click="setPage('Home')"
-              class="block mt-4 sm:inline-block sm:mt-0 text-teal-lighter text-white hover:text-white mr-4"
+              class="block font-semibold underline underline-offset-8 mt-4  sm:mt-0 text-black mr-4"
             >
               Home
-            </a>
+          </button>
           </li>
           <li>
             <button
-              class="no-underline text-gray-300 block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-white mr-4"
+              class="text-black block mt-4 sm:mt-0  hover:font-semibold hover:underline hover:underline-offset-8 "
             >
-              Examples
+              About
             </button>
           </li>
-          <li>
-            <button
-              class="no-underline text-gray-300 block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-white"
-            >
-              Blog
-            </button>
-          </li>
+          
         </div>
       </ul>
     </nav>
