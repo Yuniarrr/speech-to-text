@@ -35,28 +35,6 @@ import TextRainbow from "../components/TextRainbow.vue";
             ></div>
           </div>
         </form>
-
-        <div class="flex items-center" v-if="loading">
-          <svg
-            aria-hidden="true"
-            role="status"
-            class="w-6 h-6 animate-spin text-blue-700 mr-3"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="50"
-              cy="50"
-              fill="none"
-              r="40"
-              stroke="currentColor"
-              stroke-width="10"
-            />
-          </svg>
-          <p>Loading...</p>
-        </div>
-
-        <p v-if="transcription">{{ transcription }}</p>
       </div>
     </div>
   </div>
@@ -161,7 +139,25 @@ import TextRainbow from "../components/TextRainbow.vue";
     </div>
   </div>
 
-  <section class="bg-white border-b w-full mt-1" v-if="transcription">
+  <div class="flex items-center justify-center my-4" v-if="loading">
+    <svg
+      aria-hidden="true"
+      role="status"
+      class="w-6 h-6 animate-spin text-blue-700 mr-3"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="50"
+        cy="50"
+        fill="none"
+        r="40"
+        stroke="currentColor"
+        stroke-width="10"
+      />
+    </svg>
+  </div>
+  <section v-else class="bg-white border-b w-full mt-1" v-if="transcription">
     <div class="flex flex-wrap items-center justify-center">
       <p class="text-center mb-2">
         {{ transcription }}
