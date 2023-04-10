@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky top-0 bg-blue-600" id="app">
+  <div class="top-0 bg-blue-600" id="app">
     <nav class="flex items-center justify-between flex-wrap bg-teal p-4">
       <div class="flex items-center flex-no-shrink text-white mr-6">
         <img
