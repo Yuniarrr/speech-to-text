@@ -1,10 +1,10 @@
 <template>
-  <div class="sticky top-0 bg-black" id="app">
+  <div class="sticky top-0 bg-blue-600" id="app">
     <nav class="flex items-center justify-between flex-wrap bg-teal p-4">
       <div class="flex items-center flex-no-shrink text-white mr-6">
         <img
-          class="fill-current h-8 w-8 mr-2 w-32 h-32"
-          src="../assets/logo.png"
+          class="fill-current h-8 w-8 mr-2"
+          src="./assets/logo.png"
           alt="logo"
         />
         <span class="font-semibold text-xl tracking-tight">SORA</span>
@@ -51,10 +51,8 @@ import TextRainbow from "./components/TextRainbow.vue";
 export default {
   name: "App",
   components: {
-    // Layout,
     TextRainbow,
     Header,
-    // Footer
   },
 };
 </script>
