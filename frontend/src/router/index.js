@@ -8,6 +8,11 @@ const router = createRouter({
       name: "home",
       component: () => import("../views/HelloWorld.vue"),
     },
+    {
+      path: "/mic",
+      name: "mic",
+      component: () => import("../views/Mic.vue"),
+    },
   ],
 });
 
