@@ -1,19 +1,20 @@
 <template>
   <div>
-    <Header></Header>
+    <Header />
     <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./layouts/Header.vue";
-import TextRainbow from "./components/TextRainbow.vue";
+import Footer from "./layouts/Footer.vue";
 
 export default {
   name: "App",
   components: {
-    TextRainbow,
     Header,
+    Footer,
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <div class="top-0 bg-sky-300" id="app">
+  <div class="top-0 bg-sky-300">
     <nav class="flex flex-wrap items-center justify-between p-4 mx-5 bg-teal">
-      <div class="flex items-center mr-6 text-white flex-no-shrink">
+      <div class="flex items-center w-1/5 text-white flex-no-shrink">
         <!-- <img
           class="w-8 w-32 h-8 h-32 mr-2 fill-current"
           src="../assets/logo.png"

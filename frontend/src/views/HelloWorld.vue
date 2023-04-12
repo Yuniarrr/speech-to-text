@@ -4,18 +4,17 @@
       <div
         class="container flex flex-col flex-wrap items-center w-full mx-auto md:flex-row"
       >
-        <!--Left Col-->
         <div
-          class="flex flex-col items-start justify-center w-full mx-auto text-center md:w-2/5 md:text-left"
+          class="flex flex-col items-start justify-center w-full md:mx-auto text-center md:w-2/5 md:text-left"
         >
-          <p class="w-full uppercase tracking-loose">
+          <p class="w-full uppercase tracking-loose mt-4 md:mt-0">
             <TextRainbow
               class="text-gray-500 cursor-pointer"
               text="Hello, This is Speech to text"
             />
             <br />
           </p>
-          <h1 class="my-3 text-5xl font-bold leading-tight">
+          <h1 class="my-3 text-5xl font-bold leading-tight mx-6 md:mx-0">
             <TextRainbow
               class="text-gray-400 cursor-pointer"
               text="Hello! Nice to meet you! Is there anything I can help?"
@@ -153,47 +152,43 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col flex-grow flex-shrink w-full p-2 md:w-1/3">
+        <div class="flex flex-col flex-grow w-full p-2 md:w-1/3">
           <div
             class="flex-1 overflow-hidden rounded-t rounded-b-none shadow bg-sky-100"
           >
             <div
-              class="flex flex-col items-center justify-center w-full pt-5 mx-auto"
+              class="flex flex-col items-center justify-center w-full pt-5 pb-5"
             >
-              <div class="mb-3">
-                <div
-                  class="mb-2 text-lg font-semibold uppercase dark:text-gray-300"
+              <div
+                class="mb-2 text-lg font-semibold uppercase dark:text-gray-300"
+              >
+                SPEECH TO TEXT
+              </div>
+              <div class="flex items-center justify-center" v-if="loading">
+                <svg
+                  aria-hidden="true"
+                  role="status"
+                  class="w-6 h-6 mr-3 text-blue-700 animate-spin"
+                  viewBox="0 0 100 100"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  SPEECH TO TEXT
-                </div>
-                <div class="flex items-center justify-center" v-if="loading">
-                  <svg
-                    aria-hidden="true"
-                    role="status"
-                    class="w-6 h-6 mr-3 text-blue-700 animate-spin"
-                    viewBox="0 0 100 100"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      cx="50"
-                      cy="50"
-                      fill="none"
-                      r="40"
-                      stroke="currentColor"
-                      stroke-width="10"
-                    />
-                  </svg>
-                </div>
-                <div class="flex flex-col items-center w-full border-b">
-                  <div class="flex flex-wrap items-center justify-center">
-                    <p
-                      class="mb-2 text-center"
-                      v-if="transcription && !loading"
-                    >
-                      {{ transcription }}
-                    </p>
-                  </div>
-                </div>
+                  <circle
+                    cx="50"
+                    cy="50"
+                    fill="none"
+                    r="40"
+                    stroke="currentColor"
+                    stroke-width="10"
+                  />
+                </svg>
+              </div>
+              <div class="flex flex-col items-center w-full text-center">
+                <p class="mx-5" v-if="transcription && !loading">
+                  {{ transcription }}
+                </p>
+                <!-- <p class="mx-5" v-if="transcription == null && !loading">
+                  Here's the message
+                </p> -->
               </div>
             </div>
           </div>
@@ -273,6 +268,7 @@ export default {
     },
     onRecord() {
       this.record = !this.record;
+      // this.transcription = "";
       const sr = new webkitSpeechRecognition();
       sr.continuous = true;
       sr.interimResults = true;
