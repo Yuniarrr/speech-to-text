@@ -7,11 +7,11 @@ const props = defineProps({
 });
 
 let colors = [
-  "hover:text-orange-400",
-  "hover:text-sky-400",
-  "hover:text-rose-400",
-  "hover:text-purple-400",
-  "hover:text-yellow-400",
+  "hover:text-orange-200",
+  "hover:text-emerald-200",
+  "hover:text-red-200",
+  "hover:text-purple-200",
+  "hover:text-yellow-200",
 ];
 </script>
 
