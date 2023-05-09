@@ -232,7 +232,6 @@
             >
           </div>
         </div>
-
       </div>
     </form>
     <!-- CARD 2 -->
@@ -323,7 +322,6 @@
             >
           </div>
         </div>
-
       </div>
     </form>
   </div>

@@ -11,6 +11,10 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("flowbite/plugin"), require("tw-elements/dist/plugin.cjs"), require("preline/plugin"),],
+  plugins: [
+    require("flowbite/plugin"),
+    require("tw-elements/dist/plugin.cjs"),
+    require("preline/plugin"),
+  ],
   darkMode: "class",
 };
