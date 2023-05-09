@@ -1,8 +1,8 @@
 <template>
   <div class="bg-white w-full">
-    <form class="flex items-center pt-4">
+    <div class="flex justify-center pt-4 space-x-20">
       <!-- category -->
-      <div class="ml-24">
+      <div class="">
         <div class="dropdown inline-block">
           <button
             class="border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 font-semibold py-2 px-4 rounded inline-flex items-center"
@@ -18,7 +18,7 @@
               />
             </svg>
           </button>
-          <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+          <ul class="dropdown-menu absolute z-10 hidden text-gray-700 pt-1">
             <li class="">
               <a
                 class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
@@ -28,7 +28,7 @@
             </li>
             <li class="">
               <a
-                class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap rounded-b"
                 href="#"
                 >Medicine</a
               >
@@ -38,7 +38,7 @@
       </div>
 
       <!-- Search -->
-      <div class="mx-96 flex">
+      <div class="flex">
         <div class="relative w-96">
           <div
             class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
@@ -104,7 +104,7 @@
           </svg>
         </button>
       </div>
-    </form>
+    </div>
 
     <!-- promo -->
     <swiper

@@ -13,6 +13,11 @@ const router = createRouter({
       name: "product",
       component: () => import("../views/product.vue"),
     },
+    {
+      path: "/mic",
+      name: "mic",
+      component: () => import("../views/Mic.vue"),
+    },
   ],
 });
 
