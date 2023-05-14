@@ -152,11 +152,16 @@
                 v-for="category in app.product.categories"
                 :key="category.external_id"
               >
-                <a
-                  href=""
-                  class="underline underline-offset-8 text-green-500 hover:text-green-400"
-                  >{{ category.name }}</a
+                <router-link
+                  to="/"
+                  @click="app.getSubCategories(category.slug)"
                 >
+                  <div
+                    class="underline underline-offset-8 text-green-500 hover:text-green-400"
+                  >
+                    {{ category.name }}
+                  </div>
+                </router-link>
               </div>
             </div>
           </div>

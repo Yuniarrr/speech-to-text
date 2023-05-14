@@ -9,6 +9,9 @@ export const useApp = defineStore({
     products: [],
     product: {},
     categories: [],
+    slug_category: "obat-dan-perawatan",
+    sub_categories: [],
+    product_sub_categories: [],
     search: "",
     loading: false,
     coordinates: {},
@@ -55,6 +58,37 @@ export const useApp = defineStore({
         const { data } = await axios.get(URL_API + "/categories/all");
         this.categories = data;
         console.log(this.categories);
+      } catch (error) {
+        console.log(error);
+      }
+      this.loading = false;
+    },
+    async getSubCategories(slug) {
+      this.loading = true;
+      this.sub_categories = [];
+      try {
+        const { data } = await axios.get(
+          URL_API + "/categories/" + slug + "/subcategories"
+        );
+        this.sub_categories = data;
+        console.log(this.sub_categories);
+      } catch (error) {
+        console.log(error);
+      }
+      this.loading = false;
+    },
+    async getProductSubCategories(slug) {
+      this.loading = true;
+      this.product_sub_categories = [];
+      try {
+        const { data } = await axios.post(
+          URL_API + "/categories/" + slug + "/products",
+          {
+            coordinates: this.coordinates,
+          }
+        );
+        this.product_sub_categories = data;
+        console.log(this.product_sub_categories);
       } catch (error) {
         console.log(error);
       }

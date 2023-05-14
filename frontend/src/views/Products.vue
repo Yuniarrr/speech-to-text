@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-white">
+  <div class="bg-white mx-10">
     <div class="flex items-center justify-center lg:space-x-20 sm:space-x-5">
       <!-- category -->
       <div class="">
@@ -112,77 +112,61 @@
     <!-- promo -->
     <swiper />
 
-    <!-- Category -->
-    <div class="flex flex-col justify-around">
-      <h1 class="mt-10 text-2xl font-bold lg:ml-32 sm:ml-10">CATEGORY</h1>
-      <div
-        class="grid grid-cols-10 items-center justify-center my-2 space-x-5 overflow-auto"
-      >
-        <div v-for="(category, index) in app.categories" :key="index">
-          <category :name="category.name" :category_id="category.category_id" />
+    <div v-if="app.products.length == 0 && app.categories.length != 0">
+      <!-- Category -->
+      <div class="flex flex-col justify-around">
+        <h1 class="mt-10 text-2xl font-bold">CATEGORY</h1>
+        <div class="flex flex-row my-2 space-x-5 overflow-auto">
+          <div v-for="(category, index) in app.categories" :key="index">
+            <category
+              v-if="category.sub_categories.length != 0"
+              :name="category.name"
+              :category_id="category.category_id"
+              :slug="category.slug.value"
+              @click="
+                (app.slug_category = category.slug.value),
+                  app.getSubCategories(category.slug.value)
+              "
+            />
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Sub Category -->
-    <div class="flex flex-col justify-around" v-if="app.products.length == 0">
-      <div v-for="(category, index) in app.categories" :key="index">
-        <h1 class="mt-10 text-2xl font-bold lg:ml-32 sm:ml-10">
-          {{ category.name }}
+      <!-- Sub Category -->
+      <div class="flex flex-col justify-around">
+        <h1 class="mt-10 text-2xl font-bold">
+          {{
+            app.categories.find((item) => item.slug.value == app.slug_category)
+              .name
+          }}
         </h1>
-        <div
-          v-for="sub_category in category.sub_categories"
-          :key="sub_category.category_id"
-        >
-          <router-link :to="`/sub_category/${sub_category.category_id}`">
+        <div class="flex flex-col space-y-2">
+          <div
+            v-for="sub_category in app.sub_categories"
+            :key="sub_category.category_id"
+          >
+            <!-- <router-link :to="`/sub_category/${sub_category.slug.value}/products`"> -->
             <div
+              @click="app.getProductSubCategories(sub_category.slug.value)"
               class="cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800 hover:bg-slate-100"
             >
               {{ sub_category.name }}
             </div>
-          </router-link>
+            <!-- </router-link> -->
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Card One -->
-    <!-- <div
-      class="flex flex-wrap items-center justify-center my-2 lg:space-y-3 sm:space-y-5"
+    <!-- CARD -->
+    <div
+      class="flex flex-col justify-around space-y-8"
+      v-if="app.products.length != 0"
     >
-      <div v-for="(item, index) in 3" :key="index">
-        <div
-          class="max-w-sm ml-10 overflow-hidden border border-gray-300 rounded shadow-lg"
-        >
-          <img class="w-full" src="../assets/obat.jpg" alt="Mountain" />
-          <div class="px-6 py-4">
-            <div class="mb-2 text-xl font-bold cursor-pointer">Mountain</div>
-            <p class="text-base text-gray-700">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, Nonea! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span
-              class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
-              >#photography</span
-            >
-            <span
-              class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
-              >#travel</span
-            >
-            <span
-              class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full"
-              >#winter</span
-            >
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- CARD two -->
-    <div class="flex flex-col justify-around" v-if="app.products.length != 0">
-      <h1 class="mt-10 text-2xl font-bold lg:ml-32 sm:ml-10">PRODUCTS!</h1>
+      <h1 class="text-2xl font-bold text-center">
+        Search for "{{ app.search }}"
+      </h1>
+      <h1 class="text-2xl font-bold">PRODUCTS!</h1>
       <div
         class="flex flex-wrap items-center justify-center my-2 lg:space-y-3 sm:space-y-5"
       >
@@ -253,6 +237,7 @@ export default {
   },
   mounted() {
     this.app.getCategories();
+    this.app.getSubCategories(this.app.slug_category);
   },
 };
 </script>

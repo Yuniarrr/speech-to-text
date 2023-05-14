@@ -164,12 +164,23 @@ def categories():
         return jsonify({'error': str(e)}), 400
 
 
-@app.route('/categories/detail/<string:text>', methods=['GET'])
+@app.route('/categories/<string:text>/subcategories', methods=['GET'])
 def subcategories(text):
     try:
-        # connect api to detail product
-        api_endpoint = "https://magneto.api.halodoc.com/api/v1/buy-medicine/categories/" + \
-            text+"/sub-categories"
+        # connect api to detail subcategories
+        api_endpoint = f"https://magneto.api.halodoc.com/api/v1/buy-medicine/categories/slug/{text}/sub-categories"
+        data = requests.get(api_endpoint).json()
+        return data, 200
+
+    except Exception as e:
+        print(e)
+        return jsonify({'error': str(e)}), 400
+
+
+@app.route('/categories/<string:text>/products', methods=['POST'])
+def subcategories_product(text):
+    try:
+        api_endpoint = f"https://magneto.api.halodoc.com/api/v1/buy-medicine/categories/{text}/products?page=1&size=20"
         data = requests.get(api_endpoint).json()
         return data, 200
 
