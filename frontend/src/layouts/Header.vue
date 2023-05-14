@@ -54,37 +54,9 @@
       </div>
       <ul class="w-full sm:flex sm:items-center sm:w-auto">
         <div class="flex text-sm">
-          <li>
-            <router-link
-              to="/"
-              class="block mt-4 mr-4 text-black sm:mt-0"
-              :class="
-                $route.path == '/'
-                  ? 'underline underline-offset-8 font-semibold'
-                  : ''
-              "
-            >
-              Home
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/product"
-              class="block mt-4 mr-4 text-black sm:mt-0"
-              :class="
-                $route.path == '/product'
-                  ? 'underline underline-offset-8 font-semibold'
-                  : ''
-              "
-            >
-              Product
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/" class="block mt-4 mr-4 text-black sm:mt-0">
-              About
-            </router-link>
-          </li>
+          <item name="Home" path="/" />
+          <item name="Products" path="/products" />
+          <item name="About" path="/about" />
         </div>
       </ul>
     </nav>
@@ -92,10 +64,13 @@
 </template>
 <script>
 import TextRainbow from "../components/TextRainbow.vue";
+import Item from "../components/Menu/Item.vue";
+
 export default {
   name: "Header",
   components: {
     TextRainbow,
+    Item,
   },
 };
 </script>

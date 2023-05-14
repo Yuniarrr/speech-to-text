@@ -1,14 +1,14 @@
 <template>
-  <footer class="bg-sky-300 mt-10 shadow dark:bg-gray-800">
+  <footer class="bottom-0 shadow bg-sky-300 dark:bg-gray-800">
     <div
-      class="w-full mx-auto max-w-screen-xl px-4 py-6 flex flex-col items-center md:justify-between justify-center"
+      class="flex flex-col items-center justify-center w-full max-w-screen-xl px-4 py-6 mx-auto md:justify-between"
     >
-      <span class="text-sm text-black sm:text-center mb-2 dark:text-white"
+      <span class="mb-2 text-sm text-black sm:text-center dark:text-white"
         >@ Teknologi Multimedia 2023
       </span>
       <div>
         <ul
-          class="flex flex-wrap justify-center items-center mt-3 text-sm font-medium text-black dark:text-white sm:mt-0"
+          class="flex flex-wrap items-center justify-center mt-3 text-sm font-medium text-black dark:text-white sm:mt-0"
         >
           <li>
             <a href="#" class="mr-4 cursor-default md:mr-6">M. Azril Fathoni</a>

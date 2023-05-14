@@ -57,12 +57,12 @@
                 >
                   <h1 class="mb-2">Choose Language</h1>
                   <select
-                    v-model="voiceSelect"
+                    v-model="mic.voiceSelect"
                     class="w-full px-5 text-left border-solid rounded-full"
                   >
                     <option
                       class=""
-                      v-for="voice in voiceList"
+                      v-for="voice in mic.voiceList"
                       :data-name="voice.name"
                       :data-lang="voice.lang"
                       :key="voice"
@@ -81,7 +81,7 @@
                 >
                   <input
                     type="file"
-                    @change="onFileChange"
+                    @change="mic.onFileChange"
                     class="text-left text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                   />
                 </div>
@@ -90,8 +90,8 @@
                 class="flex items-center justify-center mx-auto mt-2 space-x-2"
               >
                 <button
-                  v-if="!record"
-                  @click="onRecord"
+                  v-if="!mic.record"
+                  @click="mic.onRecord"
                   type="button"
                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-gray-800 border rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                 >
@@ -110,8 +110,8 @@
                   >Voice
                 </button>
                 <button
-                  v-if="record"
-                  @click="stopRecord"
+                  v-if="mic.record"
+                  @click="mic.stopRecord"
                   type="button"
                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-gray-800 border rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                 >
@@ -132,7 +132,7 @@
                   >Stop
                 </button>
                 <button
-                  @click="transcribe"
+                  @click="mic.transcribe"
                   type="button"
                   class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-gray-800 border rounded-lg hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
                 >
@@ -140,7 +140,7 @@
                 </button>
               </div>
               <lottie-player
-                v-if="record"
+                v-if="mic.record"
                 class="mt-2 -mb-2"
                 src="https://assets5.lottiefiles.com/packages/lf20_fgwiaub8.json"
                 background="transparent"
@@ -164,7 +164,7 @@
               >
                 SPEECH TO TEXT
               </div>
-              <div class="flex items-center justify-center" v-if="loading">
+              <div class="flex items-center justify-center" v-if="mic.loading">
                 <svg
                   aria-hidden="true"
                   role="status"
@@ -183,8 +183,8 @@
                 </svg>
               </div>
               <div class="flex flex-col items-center w-full text-center">
-                <p class="mx-5" v-if="transcription && !loading">
-                  {{ transcription }}
+                <p class="mx-5" v-if="mic.transcription && !mic.loading">
+                  {{ mic.transcription }}
                 </p>
                 <!-- <p class="mx-5" v-if="transcription == null && !loading">
                   Here's the message
@@ -200,94 +200,19 @@
 
 <script>
 import TextRainbow from "../components/TextRainbow.vue";
+import { useMicrophone } from "../store";
 
 export default {
   name: "HelloWorld",
-  data() {
+  setup() {
+    const mic = useMicrophone();
+
     return {
-      file: null,
-      transcription: null,
-      loading: false,
-      voiceSelect: {
-        name: "English",
-        lang: "en-US",
-      },
-      voiceList: [
-        {
-          name: "English",
-          lang: "en-US",
-        },
-        {
-          name: "Español",
-          lang: "es-ES",
-        },
-        {
-          name: "Indonesia",
-          lang: "id-ID",
-        },
-        {
-          name: "Italiano",
-          lang: "it-IT",
-        },
-        {
-          name: "Jepang",
-          lang: "ja-JP",
-        },
-        {
-          name: "Korea",
-          lang: "ko-KR",
-        },
-      ],
-      record: false,
-      recording: null,
+      mic,
     };
   },
   components: {
     TextRainbow,
-  },
-  methods: {
-    onFileChange(event) {
-      this.file = event.target.files[0];
-    },
-    async transcribe() {
-      this.loading = true;
-      const formData = new FormData();
-      formData.append("file", this.file);
-      formData.append("voiceSelect", JSON.stringify(this.voiceSelect.lang));
-
-      const response = await fetch("http://localhost:5000/transcribe", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await response.json();
-      if (data) {
-        this.transcription = data.text;
-        this.loading = false;
-      }
-    },
-    onRecord() {
-      this.record = !this.record;
-      // this.transcription = "";
-      const sr = new webkitSpeechRecognition();
-      sr.continuous = true;
-      sr.interimResults = true;
-      sr.lang = this.voiceSelect.lang;
-      sr.start();
-      sr.onresult = (e) => {
-        const t = Array.from(e.results)
-          .map((result) => result[0])
-          .map((result) => result.transcript)
-          .join("");
-
-        this.transcription = t;
-      };
-      this.recording = sr;
-    },
-    stopRecord() {
-      this.record = false;
-      this.recording.stop();
-    },
   },
 };
 </script>
