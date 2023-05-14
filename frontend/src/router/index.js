@@ -8,6 +8,26 @@ const router = createRouter({
       name: "home",
       component: () => import("../views/HelloWorld.vue"),
     },
+    {
+      path: "/products",
+      name: "products",
+      component: () => import("../views/Products.vue"),
+    },
+    {
+      path: "/mic",
+      name: "mic",
+      component: () => import("../views/Mic.vue"),
+    },
+    {
+      path: "/product/:slug",
+      name: "product",
+      component: () => import("../views/Details.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: () => import("../views/NotFound.vue"),
+    },
   ],
 });
 

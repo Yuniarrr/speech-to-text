@@ -1,49 +1,76 @@
 <template>
-  <div class="sticky top-0 bg-black" id="app">
-    <nav class="flex items-center justify-between flex-wrap bg-teal p-4">
-      <div class="flex items-center flex-no-shrink text-white mr-6">
-        <img
-          class="fill-current h-8 w-8 mr-2 w-32 h-32"
+  <!-- <div class="w-full p-4 bg-sky-300 sticky top-0 z-10">
+    <nav class="flex items-center justify-between max-w-screen-xl mx-auto"> -->
+  <!-- <div class="font-bold text-2xl text-slate-100">
+        <TextRainbow class="cursor-pointer" text="SORA" />
+      </div> -->
+  <!-- <div
+        class="sm:flex sm:items-center sm:space-x-2 text-slate-800 font-medium"
+      >
+        <a
+          class="px-3 py-2 text-sm hover:text-slate-950 hover:underline hover:underline-offset-8"
+          href="/"
+          >Home</a
+        >
+        <a
+          class="px-3 py-2 text-sm hover:text-slate-950 hover:underline hover:underline-offset-8"
+          href="/product"
+          >Product</a
+        >
+        <a
+          class="px-3 py-2 text-sm hover:text-slate-950 hover:underline hover:underline-offset-8"
+          href="/"
+          >About Us</a
+        >
+      </div> -->
+  <div class="top-0 bg-sky-300">
+    <nav class="flex flex-wrap items-center justify-between p-4 mx-5 bg-teal">
+      <div class="flex items-center w-1/5 text-white flex-no-shrink">
+        <!-- <img
+          class="w-8 w-32 h-8 h-32 mr-2 fill-current"
           src="../assets/logo.png"
           alt="logo"
-        />
-        <span class="font-semibold text-xl tracking-tight">SORA</span>
+        /> -->
+        <span class="text-xl font-bold tracking-tight text-black">SORA</span>
       </div>
 
-      <ul
-        :class="open ? 'block' : 'hidden'"
-        class="w-full sm:flex sm:items-center sm:w-auto"
-      >
-        <div class="text-sm sm:flex-grow flex">
-          <li>
-            <a
-              @click="setPage('Home')"
-              class="block mt-4 sm:inline-block sm:mt-0 text-teal-lighter text-white hover:text-white mr-4"
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <button
-              class="no-underline text-gray-300 block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-white mr-4"
-            >
-              Examples
-            </button>
-          </li>
-          <li>
-            <button
-              class="no-underline text-gray-300 block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-white"
-            >
-              Blog
-            </button>
-          </li>
+      <div class="flex justify-center md:w-3/5">
+        <lottie-player
+          src="https://assets1.lottiefiles.com/packages/lf20_KUFdS6.json"
+          background="transparent"
+          speed="2"
+          style="width: 50px; height: 50px"
+          loop
+          autoplay
+        ></lottie-player>
+        <lottie-player
+          src="https://assets1.lottiefiles.com/packages/lf20_KUFdS6.json"
+          background="transparent"
+          speed="2"
+          style="width: 200px; height: 50px"
+          loop
+          autoplay
+        ></lottie-player>
+      </div>
+      <ul class="w-full sm:flex sm:items-center sm:w-auto">
+        <div class="flex text-sm">
+          <item name="Home" path="/" />
+          <item name="Products" path="/products" />
+          <item name="About" path="/about" />
         </div>
       </ul>
     </nav>
   </div>
 </template>
 <script>
+import TextRainbow from "../components/TextRainbow.vue";
+import Item from "../components/Menu/Item.vue";
+
 export default {
   name: "Header",
+  components: {
+    TextRainbow,
+    Item,
+  },
 };
 </script>
