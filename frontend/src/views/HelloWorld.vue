@@ -2,7 +2,7 @@
   <div>
     <div class="text-white">
       <div
-        class="container flex flex-col flex-wrap items-center w-full mx-auto md:flex-row"
+        class="flex flex-col flex-wrap items-center w-full mx-auto md:flex-row"
       >
         <div
           class="flex flex-col items-start justify-center w-full md:mx-auto text-center md:w-2/5 md:text-left"
@@ -37,7 +37,7 @@
 
     <!-- speech -->
     <section class="mx-auto bg-white">
-      <div class="container flex flex-wrap px-10 pb-3 mx-auto">
+      <div class="flex flex-wrap px-10 pb-3 mx-auto">
         <div class="flex flex-col flex-grow flex-shrink w-full p-2 md:w-1/3">
           <div
             class="flex-1 pb-6 overflow-hidden rounded-t rounded-b-none shadow bg-sky-100"

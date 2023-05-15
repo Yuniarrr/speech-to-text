@@ -10,7 +10,7 @@
         <span class="text-xl font-bold tracking-tight text-black">SORA</span>
       </div>
 
-      <div class="flex justify-center md:w-3/5">
+      <!-- <div class="flex justify-center md:w-3/5">
         <lottie-player
           src="https://assets1.lottiefiles.com/packages/lf20_KUFdS6.json"
           background="transparent"
@@ -27,8 +27,8 @@
           loop
           autoplay
         ></lottie-player>
-      </div>
-      <ul class="w-full sm:flex sm:items-center sm:w-auto">
+      </div> -->
+      <ul class="h-full sm:flex sm:items-center sm:w-auto">
         <div class="flex text-sm">
           <item name="Home" path="/" />
           <item name="Products" path="/products" />
