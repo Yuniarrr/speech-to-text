@@ -145,14 +145,14 @@
             v-for="sub_category in app.sub_categories"
             :key="sub_category.category_id"
           >
-            <!-- <router-link :to="`/sub_category/${sub_category.slug.value}/products`"> -->
-            <div
-              @click="app.getProductSubCategories(sub_category.slug.value)"
-              class="cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800 hover:bg-slate-100"
-            >
-              {{ sub_category.name }}
-            </div>
-            <!-- </router-link> -->
+            <router-link :to="`/subcategory/${sub_category.slug.value}`">
+              <div
+                @click="app.getProductSubCategories(sub_category.slug.value)"
+                class="cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800 hover:bg-slate-100"
+              >
+                {{ sub_category.name }}
+              </div>
+            </router-link>
           </div>
         </div>
       </div>
