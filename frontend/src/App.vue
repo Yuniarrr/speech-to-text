@@ -1,6 +1,6 @@
 <template>
   <div class="sticky top-0 bg-black" id="app">
-    <nav class="flex items-center justify-between flex-wrap bg-teal p-4">
+    <!-- <nav class="flex items-center justify-between flex-wrap bg-teal p-4">
       <div class="flex items-center flex-no-shrink text-white mr-6">
         <img
           class="fill-current h-8 w-8 mr-2 w-32 h-32"
@@ -39,27 +39,26 @@
           </li>
         </div>
       </ul>
-    </nav>
+    </nav> -->
   </div>
   <router-view />
 </template>
 
 <script>
-import Header from "./layouts/Header.vue";
-import TextRainbow from "./components/TextRainbow.vue";
+// import Header from "./layouts/Header.vue";
 
-export default {
-  name: "App",
-  components: {
-    // Layout,
-    TextRainbow,
-    Header,
-    // Footer
-  },
-};
+// export default {
+//   name: "App",
+//   components: {
+//     // Layout,
+//     TextRainbow,
+//     Header,
+//     // Footer
+//   },
+// };
 </script>
 
-<style scoped>
+<!-- <style scoped>
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -72,4 +71,4 @@ export default {
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
-</style>
+</style> -->
