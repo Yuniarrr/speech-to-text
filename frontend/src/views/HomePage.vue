@@ -38,7 +38,7 @@
           </div>
           <!-- gambar -->
           <div class="lg:ml-auto lg:text-right mt-10 mr-24">
-            <div class="relative z-auto inline-block ">
+            <div class="relative inline-block ">
               <img src="/src/assets/hero.jpg" alt="hero" class="W-1/2" />
               <span class="absolute top-60 z-10  left-0 -translate-x-1/2">
                 <svg
