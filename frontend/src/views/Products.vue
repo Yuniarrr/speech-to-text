@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white mx-10">
+  <div class="bg-white mx-10 my-5">
     <div class="flex items-center justify-center lg:space-x-20 sm:space-x-5">
       <!-- category -->
       <div class="">
