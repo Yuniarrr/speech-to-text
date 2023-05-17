@@ -190,7 +190,6 @@
       <h1 class="text-2xl font-bold text-center">
         Search for "{{ app.search }}"
       </h1>
-      <!-- <h1 class="text-2xl font-bold">PRODUCTS!</h1> -->
       <div class="flex flex-wrap items-center justify-center">
         <!--Card 1-->
         <div v-for="(product, index) in app.products.result" :key="index">
@@ -231,12 +230,6 @@
               <div class="mb-6 text-base">
                 Rp {{ product.min_price }} - {{ product.base_price }}
               </div>
-
-              <!-- <p class="text-base text-gray-700">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, Nonea! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p> -->
             </div>
             <router-link
               :to="`/product/${product.slug}`"
