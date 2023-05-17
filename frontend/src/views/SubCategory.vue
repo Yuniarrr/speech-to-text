@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white w-full">
     <div class="pt-4 mx-10">
-    <router-link
+      <router-link
         to="/products"
         class="inline-flex items-center py-2.5 px-3 text-sm font-medium text-white bg-blue-700 rounded-full border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >

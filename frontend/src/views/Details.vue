@@ -34,7 +34,7 @@
 
           <!-- toko -->
           <div class="">
-            <img src="../assets/ingat.png" alt="ingat" class="w-72  mx-auto" />
+            <img src="../assets/ingat.png" alt="ingat" class="w-72 mx-auto" />
           </div>
         </div>
 
@@ -155,7 +155,7 @@
                   <div
                     class="underline underline-offset-8 text-green-500 hover:text-green-400"
                   >
-                    {{ category.name }} 
+                    {{ category.name }}
                   </div>
                 </router-link>
               </div>
