@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white mx-10">
+  <div class="bg-white mx-10 my-5">
     <div class="flex items-center justify-center lg:space-x-20 sm:space-x-5">
       <!-- category -->
       <div class="">
@@ -67,6 +67,8 @@
             required
           />
           <button
+            v-if="!mic.record"
+            @click="mic.onRecord"
             type="button"
             class="absolute inset-y-0 right-0 flex items-center pr-3"
           >
@@ -81,6 +83,28 @@
                 fill-rule="evenodd"
                 d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
                 clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <button
+            v-if="mic.record"
+            @click="mic.stopRecord"
+            type="button"
+            class="absolute inset-y-0 right-0 flex items-center pr-3"
+          >
+            <svg
+              fill="white"
+              class="w-4 h-4 text-gray-500 hover:text-gray-900"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5.25 7.5A2.25 2.25 0 017.5 5.25h9a2.25 2.25 0 012.25 2.25v9a2.25 2.25 0 01-2.25 2.25h-9a2.25 2.25 0 01-2.25-2.25v-9z"
               ></path>
             </svg>
           </button>
@@ -148,7 +172,7 @@
             <router-link :to="`/subcategory/${sub_category.slug.value}`">
               <div
                 @click="app.getProductSubCategories(sub_category.slug.value)"
-                class="cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white p-3 shadow-lg dark:border-gray-700 dark:bg-gray-800 hover:bg-slate-100"
+                class="p-3 overflow-hidden bg-white border border-gray-200 rounded-lg shadow-lg cursor-pointer dark:border-gray-700 dark:bg-gray-800 hover:bg-slate-100"
               >
                 {{ sub_category.name }}
               </div>
@@ -166,47 +190,62 @@
       <h1 class="text-2xl font-bold text-center">
         Search for "{{ app.search }}"
       </h1>
-      <h1 class="text-2xl font-bold">PRODUCTS!</h1>
-      <div
-        class="flex flex-wrap items-center justify-center my-2 lg:space-y-3 sm:space-y-5"
-      >
+      <!-- <h1 class="text-2xl font-bold">PRODUCTS!</h1> -->
+      <div class="flex flex-wrap items-center justify-center">
         <!--Card 1-->
         <div v-for="(product, index) in app.products.result" :key="index">
           <div
-            class="max-w-sm ml-10 overflow-hidden border border-gray-300 rounded shadow-lg"
+            class="mx-2 my-2 w-64 h-[520px] -hidden border border-gray-300 rounded shadow-lg col-span-1 flex flex-col gap-4"
           >
             <img
-              class="w-full"
+              class="w-full h-52"
               :src="product.thumbnail_url"
               :alt="product.slug"
             />
-            <div class="px-6 py-4">
-              <div class="mb-2 text-xl font-bold cursor-pointer">
-                {{ product.name }}
+            <div class="p-4">
+              <div class="flex flex-wrap">
+                <div class="text-xl font-bold cursor-pointer">
+                  {{ product.name }}
+                </div>
+                <div class="font-semibold text-sm text-orange-400 flex">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="orange"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="orange"
+                    class="w-3 h-3 mr-1 mt-[4px]"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+                    />
+                  </svg>
+                  {{ product.ratings }}
+                </div>
               </div>
               <div class="mb-2 text-base font-semibold">
                 {{ product.selling_unit }}
               </div>
-              <div class="mb-2 text-base text-center">
-                {{ product.min_price }} - {{ product.base_price }}
+              <div class="mb-6 text-base">
+                Rp {{ product.min_price }} - {{ product.base_price }}
               </div>
-              <div class="mb-2 text-base">
-                {{ product.ratings }}
-              </div>
+
               <!-- <p class="text-base text-gray-700">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptatibus quia, Nonea! Maiores et perferendis eaque,
                 exercitationem praesentium nihil.
               </p> -->
-              <router-link
-                :to="`/product/${product.slug}`"
-                @click="app.getProduct(product.slug)"
-                type="button"
-                class="self-center focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-              >
-                Detail
-              </router-link>
             </div>
+            <router-link
+              :to="`/product/${product.slug}`"
+              @click="app.getProduct(product.slug)"
+              type="button"
+              class="flex mt-auto focus:outline-none text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:ring-sky-300 font-medium rounded-lg text-sm px-4 py-2.5 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+            >
+              <span class="mx-auto">Detail</span>
+            </router-link>
           </div>
         </div>
       </div>

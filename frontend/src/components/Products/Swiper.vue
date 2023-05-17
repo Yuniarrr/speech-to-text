@@ -17,22 +17,22 @@
       <swiper-slide>
         <img
           className="object-fill w-full h-full"
-          src="https://cdn.pixabay.com/photo/2022/03/20/15/40/nature-7081138__340.jpg"
+          src="https://down-aka-id.img.susercontent.com/e803a6a20062c47931a6d26693531a79"
           alt="image slide 1"
         />
       </swiper-slide>
       <swiper-slide>
         <img
           className="object-fill w-full h-full"
-          src="https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177__340.jpg"
+          src="https://blog.klikindomaret.com/wp-content/uploads/2022/02/HERO_BNR_PILIHAN-HEMAT-SEHAT-23-FE.jpg"
           alt="image slide 2"
         />
       </swiper-slide>
       <swiper-slide>
         <img
           className="object-fill w-full h-full"
-          src="https://cdn.pixabay.com/photo/2022/07/26/03/35/jogger-7344979__340.jpg"
-          alt="image slide 3"
+          src="https://o-cdf.sirclocdn.com/unsafe/700x343/https://o-cdf.sirclocdn.com/unsafe/cdn-omp.orami.co.id/media/block-node/EZ_Featured_-_Musim_Hujan_Siapa_Takut-.jpg"
+          alt="oks"
         />
       </swiper-slide>
     </swiper>

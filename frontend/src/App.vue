@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header />
-    <router-view class="my-5" />
-    <Footer />
+    <router-view />
+    <Footer class="mt-10" />
   </div>
 </template>
 
