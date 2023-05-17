@@ -33,8 +33,8 @@
           />
 
           <!-- toko -->
-          <div>
-            <img src="../assets/ingat.png" alt="ingat" class="w-80 mx-auto" />
+          <div class="">
+            <img src="../assets/ingat.png" alt="ingat" class="w-72  mx-auto" />
           </div>
         </div>
 
@@ -118,10 +118,6 @@
                 d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
               />
             </svg>
-            <!-- <button class="flex ml-4">
-              <p class="underline underline-offset-6">600</p>
-              <p class="ml-1 text-gray-700 hover:text-gray-950">Penilaian</p>
-            </button> -->
           </div>
           <!-- harga -->
           <div class="mt-3 flex items-end">
@@ -159,7 +155,7 @@
                   <div
                     class="underline underline-offset-8 text-green-500 hover:text-green-400"
                   >
-                    {{ category.name }}
+                    {{ category.name }} 
                   </div>
                 </router-link>
               </div>
