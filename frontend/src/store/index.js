@@ -104,8 +104,10 @@ export const useMicrophone = defineStore({
     transcription: null,
     loading: false,
     voiceSelect: {
-      name: "English",
-      lang: "en-US",
+      // name: "English",
+      // lang: "en-US",
+      name: "Indonesia",
+      lang: "id-ID",
     },
     voiceList: [
       {
@@ -158,6 +160,8 @@ export const useMicrophone = defineStore({
       }
     },
     onRecord() {
+      const app = useApp();
+
       this.record = !this.record;
       // this.transcription = "";
       const sr = new webkitSpeechRecognition();
@@ -172,6 +176,7 @@ export const useMicrophone = defineStore({
           .join("");
 
         this.transcription = t;
+        app.search = t;
       };
       this.recording = sr;
     },
