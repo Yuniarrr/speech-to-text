@@ -2,7 +2,12 @@
   <div class="top-0 bg-sky-500">
     <nav class="flex flex-wrap items-center mx-24 justify-between bg-teal">
       <div class="flex w-24 my-2">
-        <img class="w-full" src="../assets/sora.png" alt="logo" />
+        <img
+          class="w-full cursor-pointer"
+          src="../assets/sora.png"
+          alt="logo"
+          @click="$router.push(`/`)"
+        />
       </div>
       <ul class="h-full text-white sm:flex sm:items-center sm:w-auto">
         <div class="flex text-sm">
@@ -14,6 +19,7 @@
     </nav>
   </div>
 </template>
+
 <script>
 import Item from "../components/Menu/Item.vue";
 
@@ -21,6 +27,9 @@ export default {
   name: "Header",
   components: {
     Item,
+  },
+  created() {
+    // console.log(this);
   },
 };
 </script>

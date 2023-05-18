@@ -1,9 +1,11 @@
 <template>
   <div class="bg-white w-full">
-    <div class="bg-sky-100 w-full h-screen">
+    <div class="bg-sky-100 w-full pb-28">
       <!-- hello -->
-      <div class="flex">
-        <div class="w-1/3 mt-10 mx-24">
+      <div
+        class="flex flex-wrap justify-center items-center mx-10 flex-col md:flex-row"
+      >
+        <div class="lg:w-1/3 w-full mt-10">
           <h1 class="font-semibold text-blue-500 text-xl">Hi, Sora here~</h1>
           <span
             class="text-dark text-4xl font-bold leading-normal sm:text-[42px] lg:text-[40px] xl:text-[42px]"
@@ -36,11 +38,14 @@
           <div class="flex items-center"></div>
         </div>
         <!-- gambar -->
-        <div class="lg:ml-auto lg:text-right mt-10 mr-24">
+        <div class="lg:ml-auto lg:text-right mt-10 w-2/3">
           <div class="relative inline-block">
-            <img src="/src/assets/hero.jpg" alt="hero" class="W-1/2" />
-            <span class="absolute top-60 z-10 left-0 -translate-x-1/2">
+            <img src="/src/assets/hero.jpg" alt="hero" class="w-full" />
+            <span
+              class="absolute lg:top-60 md:top-40 -top-16 z-10 lg:left-[4rem] left-4 -translate-x-1/2"
+            >
               <svg
+                class="lg:w-96 md:w-60 sm:w-52 w-32"
                 width="400"
                 height="400"
                 viewBox="0 0 200 200"
