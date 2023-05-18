@@ -20,18 +20,30 @@
           </button>
           <ul class="absolute z-10 hidden pt-1 text-gray-700 dropdown-menu">
             <li class="">
-              <a
-                class="block px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-t hover:bg-gray-400"
-                href="/product"
-                >Ratings
-              </a>
+              <button
+                class="block w-full px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-t hover:bg-gray-400"
+                type="button"
+                @click="app.sortBy('ratings')"
+              >
+                Ratings
+              </button>
             </li>
             <li class="">
-              <a
-                class="block px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-b hover:bg-gray-400"
-                href="#"
-                >Medicine</a
+              <button
+                class="block w-full px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-b hover:bg-gray-400"
+                type="button"
+                @click="app.sortBy('distance')"
               >
+                Distance
+              </button>
+            </li>
+            <li class="">
+              <button
+                class="block w-full px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-b hover:bg-gray-400"
+                type="button"
+              >
+                Medicine
+              </button>
             </li>
           </ul>
         </div>

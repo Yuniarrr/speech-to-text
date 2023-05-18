@@ -94,6 +94,17 @@ export const useApp = defineStore({
       }
       this.loading = false;
     },
+    sortBy(name) {
+      if (name == "ratings") {
+        this.products.result = this.products.result.sort((a, b) => {
+          return a.ratings - b.ratings;
+        });
+      } else if (name == "distance") {
+        this.products.result = this.products.result.sort((a, b) => {
+          return a.distance - b.distance;
+        });
+      }
+    },
   },
 });
 
