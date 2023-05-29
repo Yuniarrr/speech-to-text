@@ -152,7 +152,7 @@
       <!-- Category -->
       <div class="flex flex-col justify-around">
         <h1 class="mt-10 text-2xl font-bold">CATEGORY</h1>
-        <div class="flex flex-row my-2 space-x-5 overflow-auto">
+        <div class="flex flex-row space-x-1 overflow-auto">
           <div v-for="(category, index) in app.categories" :key="index">
             <category
               v-if="category.sub_categories.length != 0"
@@ -176,7 +176,7 @@
               .name
           }}
         </h1>
-        <div class="flex flex-col space-y-2">
+        <div class="flex flex-col space-y-2 mt-3">
           <div
             v-for="sub_category in app.sub_categories"
             :key="sub_category.category_id"
@@ -236,7 +236,7 @@
                   {{ product.ratings }}
                 </div>
               </div>
-              <div class="mb-2 text-base font-semibold">
+              <div class="text-base font-semibold">
                 {{ product.selling_unit }}
               </div>
               <div class="mb-6 text-base">
