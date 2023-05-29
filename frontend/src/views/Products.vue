@@ -2,40 +2,7 @@
   <div class="bg-white mx-10 my-5">
     <div class="flex items-center justify-center lg:space-x-20 sm:space-x-5">
       <!-- category -->
-      <div class="">
-        <div class="inline-block dropdown">
-          <button
-            class="inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
-          >
-            <span class="mr-1">Category</span>
-            <svg
-              class="w-4 h-4 fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-              />
-            </svg>
-          </button>
-          <ul class="absolute z-10 hidden pt-1 text-gray-700 dropdown-menu">
-            <li class="">
-              <a
-                class="block px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-t hover:bg-gray-400"
-                href="/product"
-                >Ratings
-              </a>
-            </li>
-            <li class="">
-              <a
-                class="block px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-b hover:bg-gray-400"
-                href="#"
-                >Medicine</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
+
 
       <!-- Search -->
       <div class="flex">
