@@ -180,9 +180,41 @@ def subcategories(text):
 @app.route('/categories/<string:text>/products', methods=['POST'])
 def subcategories_product(text):
     try:
+        coordinates = request.json['coordinates']
+        latitude = coordinates['latitude']
+        longitude = coordinates['longitude']
+
         api_endpoint = f"https://magneto.api.halodoc.com/api/v1/buy-medicine/categories/{text}/products?page=1&size=20"
         data = requests.get(api_endpoint).json()
-        return data, 200
+
+        next_page = data['next_page']
+        result = data['result']
+        total_count = data['total_count']
+        total_hits = data['total_hits']
+
+        # connect to database
+        client = pymongo.MongoClient(
+            "mongodb://user:pass1234@localhost:27017/")
+        db = client["halodoc"]
+        collection = db["medicine"]
+        items = []
+        for item in collection.find():
+            items.append(replace_id(item))
+
+        temps = []
+        # check data
+        for slug_res in result:
+            for slug_db in items:
+                if slug_res['slug'] in slug_db['slug']:
+                    temp = {}
+                    temp.update(slug_res)
+                    temp.update(slug_db)
+                    temp['distance'] = geodesic(
+                        (latitude, longitude), temp['coordinate']).kilometers
+                    temp['distance'] = ('%.2f' % temp['distance'])
+                    temps.append(temp)
+
+        return jsonify({'result': temps, 'next_page': next_page, 'total_count': total_count, 'total_hits': total_hits}), 200
 
     except Exception as e:
         print(e)

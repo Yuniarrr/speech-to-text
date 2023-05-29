@@ -2,63 +2,61 @@
   <div class="bg-white w-full">
     <div class="bg-sky-100 w-full h-screen">
       <!-- hello -->
-        <div class="flex ">
-          <div class="w-1/3 mt-10 mx-24">
-            <h1 class="font-semibold text-blue-500 text-xl">Hi, Sora here~</h1>
-            <span
-              class="text-dark text-4xl font-bold leading-normal sm:text-[42px] lg:text-[40px] xl:text-[42px]"
-            >
-              Feel better about <br />
-              finding healthcare <br />
+      <div class="flex">
+        <div class="w-1/3 mt-10 mx-24">
+          <h1 class="font-semibold text-blue-500 text-xl">Hi, Sora here~</h1>
+          <span
+            class="text-dark text-4xl font-bold leading-normal sm:text-[42px] lg:text-[40px] xl:text-[42px]"
+          >
+            Feel better about <br />
+            finding healthcare <br />
+          </span>
+          <h2 class="font-medium text-slate-500 text-lg mb-5">
+            May i help you?
+          </h2>
+          <p class="text-body-color mb-8 text-base">
+            Dengan Sora, menyediakan solusi dan layanan kesehatan berupa,
+            rekomendasi rekomendasi obat, alat kesehatan, diet dan nutrisi,
+            vitamin, mineral dan suplemen, kebutuhan bayi dan anak, hingga
+            perawatan pribadi. Memanfaatkan era digital, kami meluncurkan
+            website Sora yang memungkinkan pengguna dengan mudah mengakses
+            berbagai macam produk farmasi, perawatan kesehatan, dan kecantikan.
+            Melalui layanan ini, pengguna bisa menentukan outlet pilihan mereka.
+          </p>
+          <ul class="flex flex-wrap items-center">
+            <li>
+              <a
+                href=""
+                class="bg-sky-400 inline-flex items-center justify-center rounded-lg py-4 px-6 text-center text-base font-normal text-white hover:bg-opacity-90 sm:px-10 lg:px-8 xl:px-10"
+              >
+                About Us
+              </a>
+            </li>
+          </ul>
+          <div class="flex items-center"></div>
+        </div>
+        <!-- gambar -->
+        <div class="lg:ml-auto lg:text-right mt-10 mr-24">
+          <div class="relative inline-block">
+            <img src="/src/assets/hero.jpg" alt="hero" class="W-1/2" />
+            <span class="absolute top-60 z-10 left-0 -translate-x-1/2">
+              <svg
+                width="400"
+                height="400"
+                viewBox="0 0 200 200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#3F83F8"
+                  d="M30.8,-37.6C38.1,-30.5,40.9,-19.1,49.1,-4C57.3,11.1,70.9,29.9,67.9,43.2C65,56.4,45.6,64.1,27.9,65.8C10.3,67.5,-5.6,63.3,-18.6,56.3C-31.7,49.4,-41.9,39.7,-53.7,27.2C-65.5,14.6,-79,-0.8,-77,-13.9C-75.1,-26.9,-57.7,-37.6,-42.4,-43.2C-27,-48.9,-13.5,-49.6,-0.9,-48.6C11.7,-47.6,23.5,-44.7,30.8,-37.6Z"
+                  transform="translate(100 100)"
+                />
+              </svg>
             </span>
-            <h2 class="font-medium text-slate-500 text-lg mb-5">
-              May i help you?
-            </h2>
-            <p class="text-body-color mb-8 text-base">
-              Dengan Sora, menyediakan solusi dan layanan kesehatan berupa,
-              rekomendasi rekomendasi obat, alat kesehatan, diet dan nutrisi,
-              vitamin, mineral dan suplemen, kebutuhan bayi dan anak, hingga
-              perawatan pribadi. Memanfaatkan era digital, kami meluncurkan
-              website Sora yang memungkinkan pengguna dengan mudah mengakses
-              berbagai macam produk farmasi, perawatan kesehatan, dan
-              kecantikan. Melalui layanan ini, pengguna bisa menentukan outlet
-              pilihan mereka.
-            </p>
-            <ul class="flex flex-wrap items-center">
-              <li>
-                <a
-                  href=""
-                  class="bg-sky-400 inline-flex items-center justify-center rounded-lg py-4 px-6 text-center text-base font-normal text-white hover:bg-opacity-90 sm:px-10 lg:px-8 xl:px-10"
-                >
-                  About Us
-                </a>
-              </li>
-            </ul>
-            <div class="flex items-center"></div>
-          </div>
-          <!-- gambar -->
-          <div class="lg:ml-auto lg:text-right mt-10 mr-24">
-            <div class="relative inline-block ">
-              <img src="/src/assets/hero.jpg" alt="hero" class="W-1/2" />
-              <span class="absolute top-60 z-10  left-0 -translate-x-1/2">
-                <svg
-                  width="400"
-                  height="400"
-                  viewBox="0 0 200 200"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill="#3F83F8"
-                    d="M30.8,-37.6C38.1,-30.5,40.9,-19.1,49.1,-4C57.3,11.1,70.9,29.9,67.9,43.2C65,56.4,45.6,64.1,27.9,65.8C10.3,67.5,-5.6,63.3,-18.6,56.3C-31.7,49.4,-41.9,39.7,-53.7,27.2C-65.5,14.6,-79,-0.8,-77,-13.9C-75.1,-26.9,-57.7,-37.6,-42.4,-43.2C-27,-48.9,-13.5,-49.6,-0.9,-48.6C11.7,-47.6,23.5,-44.7,30.8,-37.6Z"
-                    transform="translate(100 100)"
-                  />
-                </svg>
-              </span>
-            </div>
           </div>
         </div>
       </div>
-    
+    </div>
 
     <!-- ====== Blog Section Start -->
     <form class="pt-16 pb-10">

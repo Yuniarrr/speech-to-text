@@ -3,7 +3,7 @@
     class="rounded-lg border border-gray-200 bg-white p-2 shadow-sm hover:bg-slate-100 w-max cursor-pointer my-2"
     :class="categoryClass(slug)"
   >
-    {{ name }} 
+    {{ name }}
   </div>
 </template>
 

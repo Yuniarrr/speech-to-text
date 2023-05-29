@@ -72,10 +72,10 @@
           </form>
         </div>
         <!-- sosmed -->
-        <div class="flex-col justify-center space-y-2 hidden lg:inline my-auto ">
+        <div class="flex-col justify-center space-y-2 hidden lg:inline my-auto">
           <a
             href=""
-            class="text-white hover:bg-slate-900 hover:border-slate-900 mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#E5E5E5]  sm:mr-4 lg:mr-3 xl:mr-4"
+            class="text-white hover:bg-slate-900 hover:border-slate-900 mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#E5E5E5] sm:mr-4 lg:mr-3 xl:mr-4"
           >
             <svg width="8" height="16" viewBox="0 0 8 16" class="fill-current">
               <path
