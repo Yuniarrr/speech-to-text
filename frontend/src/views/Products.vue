@@ -202,55 +202,125 @@
       <h1 class="text-2xl font-bold text-center">
         Search for "{{ app.search }}"
       </h1>
-      <div class="flex flex-wrap items-center justify-center">
-        <!--Card 1-->
-        <div v-for="(product, index) in app.products.result" :key="index">
-          <div
-            class="mx-2 my-2 w-64 h-[520px] -hidden border border-gray-300 rounded shadow-lg col-span-1 flex flex-col gap-4"
-          >
-            <img
-              class="w-full h-52"
-              :src="product.thumbnail_url"
-              :alt="product.slug"
+      <div class="flex flex-row w-full justify-center">
+        <div class="w-1/3 flex flex-row justify-center space-x-3 mt-10">
+          <div class="w-full">
+            <input
+              type="checkbox"
+              name="ratings"
+              value="ratings"
+              v-model="app.multisort"
+              id="ratings"
             />
-            <div class="p-4">
-              <div class="flex flex-wrap">
-                <div class="text-xl font-bold cursor-pointer">
-                  {{ product.name }}
-                </div>
-                <div class="font-semibold text-sm text-orange-400 flex">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="orange"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="orange"
-                    class="w-3 h-3 mr-1 mt-[4px]"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
-                    />
-                  </svg>
-                  {{ product.ratings }}
-                </div>
-              </div>
-              <div class="text-base font-semibold">
-                {{ product.selling_unit }}
-              </div>
-              <div class="mb-6 text-base">
-                Rp {{ product.min_price }} - {{ product.base_price }}
-              </div>
-            </div>
-            <router-link
-              :to="`/product/${product.slug}`"
-              @click="app.getProduct(product.slug)"
-              type="button"
-              class="flex mt-auto focus:outline-none text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:ring-sky-300 font-medium rounded-lg text-sm px-4 py-2.5 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+            <label for="ratings">Ratings</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="Jarak"
+              value="jarak"
+              v-model="app.multisort"
+              id="Jarak"
+            />
+            <label for="Jarak">Jarak</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="A-Z"
+              value="A-Z"
+              v-model="app.multisort"
+              id="A-Z"
+            />
+            <label for="A-Z">A-Z</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="Z-A"
+              value="Z-A"
+              v-model="app.multisort"
+              id="Z-A"
+            />
+            <label for="Z-A">Z-A</label>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center">
+          <!--Card 1-->
+          <div v-for="(product, index) in app.products.result" :key="index">
+            <div
+              class="mx-2 my-2 w-64 h-[520px] -hidden border border-gray-300 rounded shadow-lg col-span-1 flex flex-col gap-4"
             >
-              <span class="mx-auto">Detail</span>
-            </router-link>
+              <img
+                class="w-full h-52"
+                :src="product.thumbnail_url"
+                :alt="product.slug"
+              />
+              <div class="p-4">
+                <div class="flex flex-wrap">
+                  <div class="text-xl font-bold cursor-pointer">
+                    {{ product.name }}
+                  </div>
+                  <div class="flex flex-wrap">
+                    <div class="font-semibold text-sm text-orange-400 flex">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="orange"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="orange"
+                        class="w-3 h-3 mr-1 mt-[4px]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+                        />
+                      </svg>
+                      {{ product.ratings }}
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap">
+                    <div class="font-semibold text-sm text-orange-400 flex">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-3 h-5"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                        />
+                      </svg>
+                      &nbsp;{{ product.distance }}
+                    </div>
+                  </div>
+                </div>
+                <div class="text-base font-semibold">
+                  {{ product.selling_unit }}
+                </div>
+                <div class="mb-6 text-base">
+                  Rp {{ product.min_price }} - {{ product.base_price }}
+                </div>
+              </div>
+              <router-link
+                :to="`/product/${product.slug}`"
+                @click="app.getProduct(product.slug)"
+                type="button"
+                class="flex mt-auto focus:outline-none text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:ring-sky-300 font-medium rounded-lg text-sm px-4 py-2.5 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+              >
+                <span class="mx-auto">Detail</span>
+              </router-link>
+            </div>
           </div>
         </div>
       </div>

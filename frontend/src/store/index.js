@@ -15,6 +15,7 @@ export const useApp = defineStore({
     search: "",
     loading: false,
     coordinates: {},
+    multisort: [],
   }),
   actions: {
     async getProducts() {
@@ -28,6 +29,7 @@ export const useApp = defineStore({
           }
         );
         this.products = data;
+        console.log("this products");
         console.log(this.products);
       } catch (error) {
         console.log(error);

@@ -45,6 +45,69 @@ export default {
       };
     },
   },
+  watch: {
+    "app.multisort": {
+      handler() {
+        if (this.app.multisort.length == 0) {
+          if (this.app.product_sub_categories.result) {
+            this.app.product_sub_categories.result.sort((a, b) => {
+              return a.name - b.name;
+            });
+          } else if (this.app.products.result) {
+            this.app.products.result.sort((a, b) => {
+              return a.name - b.name;
+            });
+          }
+        } else {
+          for (let i = 0; i < this.app.multisort.length; i++) {
+            if (this.app.multisort[i] == "ratings") {
+              if (this.app.product_sub_categories.result) {
+                this.app.product_sub_categories.result.sort((a, b) => {
+                  return a.ratings - b.ratings;
+                });
+              } else if (this.app.products.result) {
+                this.app.products.result.sort((a, b) => {
+                  return a.ratings - b.ratings;
+                });
+              }
+            } else if (this.app.multisort[i] == "jarak") {
+              if (this.app.product_sub_categories.result) {
+                this.app.product_sub_categories.result.sort((a, b) => {
+                  return a.distance - b.distance;
+                });
+              } else if (this.app.products.result) {
+                this.app.products.result.sort((a, b) => {
+                  return a.distance - b.distance;
+                });
+              }
+            } else if (this.app.multisort[i] == "A-Z") {
+              if (this.app.product_sub_categories.result) {
+                this.app.product_sub_categories.result.sort((a, b) => {
+                  return a.name - b.name;
+                });
+              } else if (this.app.products.result) {
+                this.app.products.result.sort((a, b) => {
+                  return a.name - b.name;
+                });
+              }
+            } else if (this.app.multisort[i] == "Z-A") {
+              if (this.app.product_sub_categories.result) {
+                this.app.product_sub_categories.result.sort((a, b) => {
+                  return b.name - a.name;
+                });
+              } else if (this.app.products.result) {
+                this.app.products.result.sort((a, b) => {
+                  return b.name - a.name;
+                });
+              }
+            }
+          }
+        }
+        console.log(this.app.products);
+      },
+      deep: true,
+    },
+  },
 };
 </script>
 
@@ -55,9 +118,11 @@ export default {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
