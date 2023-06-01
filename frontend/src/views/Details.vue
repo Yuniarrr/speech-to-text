@@ -32,10 +32,7 @@
             :alt="app.product.slug"
           />
 
-          <!-- toko -->
-          <div class="">
-            <img src="../assets/ingat.png" alt="ingat" class="w-72 mx-auto" />
-          </div>
+          
         </div>
 
         <!-- deskripsi -->
