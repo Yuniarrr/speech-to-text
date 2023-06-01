@@ -1,54 +1,6 @@
 <template>
   <div class="bg-white mx-10 my-5">
     <div class="flex items-center justify-center lg:space-x-20 sm:space-x-5">
-      <!-- category -->
-      <div class="">
-        <div class="inline-block dropdown">
-          <button
-            class="inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 border border-gray-300 rounded focus:ring-blue-500 focus:border-blue-500"
-          >
-            <span class="mr-1">Category</span>
-            <svg
-              class="w-4 h-4 fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-              />
-            </svg>
-          </button>
-          <ul class="absolute z-10 hidden pt-1 text-gray-700 dropdown-menu">
-            <li class="">
-              <button
-                class="block w-full px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-t hover:bg-gray-400"
-                type="button"
-                @click="app.sortBy('ratings')"
-              >
-                Ratings
-              </button>
-            </li>
-            <li class="">
-              <button
-                class="block w-full px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-b hover:bg-gray-400"
-                type="button"
-                @click="app.sortBy('distance')"
-              >
-                Distance
-              </button>
-            </li>
-            <li class="">
-              <button
-                class="block w-full px-4 py-2 whitespace-no-wrap bg-gray-200 rounded-b hover:bg-gray-400"
-                type="button"
-              >
-                Medicine
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-
       <!-- Search -->
       <div class="flex">
         <div class="relative w-96">
@@ -144,11 +96,10 @@
         </button>
       </div>
     </div>
-
-    <!-- promo -->
-    <swiper />
-
+    
     <div v-if="app.products.length == 0 && app.categories.length != 0">
+      <!-- promo -->
+      <swiper />
       <!-- Category -->
       <div class="flex flex-col justify-around">
         <h1 class="mt-10 text-2xl font-bold">CATEGORY</h1>
@@ -199,52 +150,61 @@
       class="flex flex-col justify-around space-y-8"
       v-if="app.products.length != 0"
     >
-      <h1 class="text-2xl font-bold text-center">
+      <h1 class="text-2xl font-bold text-center mt-5">
         Search for "{{ app.search }}"
       </h1>
-      <div class="flex flex-row w-full justify-center">
-        <div class="w-1/3 flex flex-row justify-center space-x-3 mt-10">
-          <div class="w-full">
-            <input
-              type="checkbox"
-              name="ratings"
-              value="ratings"
-              v-model="app.multisort"
-              id="ratings"
-            />
-            <label for="ratings">Ratings</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="Jarak"
-              value="jarak"
-              v-model="app.multisort"
-              id="Jarak"
-            />
-            <label for="Jarak">Jarak</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="A-Z"
-              value="A-Z"
-              v-model="app.multisort"
-              id="A-Z"
-            />
-            <label for="A-Z">A-Z</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              name="Z-A"
-              value="Z-A"
-              v-model="app.multisort"
-              id="Z-A"
-            />
-            <label for="Z-A">Z-A</label>
+
+      <div class="flex flex-row w-full ">
+        <!-- filter -->
+        <div class="items-center">
+          <div class="border-r-2 w-48 p-5 h-96 sticky top-5 ">
+            <h1 class="text-xl font-bold tracking-tight text-gray-900">FILTER</h1>
+            <div class="justify-center mt-1">
+              <div class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="ratings"
+                  value="ratings"
+                  v-model="app.multisort"
+                  id="ratings"
+                />
+                <label for="ratings" class="ml-2" >Ratings</label>
+              </div>
+              <div class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="Jarak"
+                  value="jarak"
+                  v-model="app.multisort"
+                  id="Jarak"
+                />
+                <label for="Jarak" class="ml-2">Jarak</label>
+              </div>
+              <div class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="A-Z"
+                  value="A-Z"
+                  v-model="app.multisort"
+                  id="A-Z"
+                />
+                <label for="A-Z" class="ml-2">A-Z</label>
+              </div>
+              <div class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="Z-A"
+                  value="Z-A"
+                  v-model="app.multisort"
+                  id="Z-A"
+                />
+                <label for="Z-A" class="ml-2">Z-A</label>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- CARD  -->
         <div class="flex flex-wrap items-center justify-center">
           <!--Card 1-->
           <div v-for="(product, index) in app.products.result" :key="index">

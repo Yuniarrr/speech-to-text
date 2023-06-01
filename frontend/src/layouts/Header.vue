@@ -1,5 +1,5 @@
 <template>
-  <div class="top-0 bg-sky-500">
+  <div class=" top-0 bg-sky-500 ">
     <nav class="flex flex-wrap items-center mx-24 justify-between bg-teal">
       <div class="flex w-24 my-2">
         <img

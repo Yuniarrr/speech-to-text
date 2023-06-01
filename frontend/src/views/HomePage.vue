@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white w-full">
-    <div class="bg-sky-100 w-full pb-28">
+  <div class="bg-white w-full ">
+    <div class="bg-sky-100 w-full h-screen pb-28">
       <!-- hello -->
       <div
         class="flex flex-wrap justify-center items-center mx-10 flex-col md:flex-row"
@@ -38,9 +38,9 @@
           <div class="flex items-center"></div>
         </div>
         <!-- gambar -->
-        <div class="lg:ml-auto lg:text-right mt-10 w-2/3">
+        <div class="lg:ml-auto lg:text-right mt-10 w-2/3 ">
           <div class="relative inline-block">
-            <img src="/src/assets/hero.jpg" alt="hero" class="w-full" />
+            <img src="/src/assets/hero.jpg" alt="hospital" class="w-full " />
             <span
               class="absolute lg:top-60 md:top-40 -top-16 z-10 lg:left-[4rem] left-4 -translate-x-1/2"
             >
@@ -94,12 +94,12 @@
               <div class="mb-8 overflow-hidden rounded">
                 <img src="src/assets/anggota.jpg" alt="image" class="w-full" />
               </div>
-              <div>
-                <span
-                  class="bg-primary mb-5 inline-block rounded py-1 px-4 text-center text-xs font-semibold leading-loose text-white"
+              <div class="mx-32">
+                <div
+                  class="bg-primary mb-5 inline-block rounded py-1 px-4 mx- text-center text-xs font-semibold leading-loose text-white"
                 >
                   May 13, 2023
-                </span>
+                </div>
               </div>
             </div>
           </div>
